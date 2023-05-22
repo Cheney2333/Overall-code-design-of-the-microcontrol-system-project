@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"overrall\startup_stm32f411xe.o"
+"overrall\main.o"
+"overrall\gpio.o"
+"overrall\usart.o"
+"overrall\stm32f4xx_it.o"
+"overrall\stm32f4xx_hal_msp.o"
+"overrall\stm32f4xx_hal_tim.o"
+"overrall\stm32f4xx_hal_tim_ex.o"
+"overrall\stm32f4xx_hal_uart.o"
+"overrall\stm32f4xx_hal_rcc.o"
+"overrall\stm32f4xx_hal_rcc_ex.o"
+"overrall\stm32f4xx_hal_flash.o"
+"overrall\stm32f4xx_hal_flash_ex.o"
+"overrall\stm32f4xx_hal_flash_ramfunc.o"
+"overrall\stm32f4xx_hal_gpio.o"
+"overrall\stm32f4xx_hal_dma_ex.o"
+"overrall\stm32f4xx_hal_dma.o"
+"overrall\stm32f4xx_hal_pwr.o"
+"overrall\stm32f4xx_hal_pwr_ex.o"
+"overrall\stm32f4xx_hal_cortex.o"
+"overrall\stm32f4xx_hal.o"
+"overrall\stm32f4xx_hal_exti.o"
+"overrall\system_stm32f4xx.o"
+--strict --scatter "Overrall\Overrall.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Overrall.map" -o Overrall\Overrall.axf
