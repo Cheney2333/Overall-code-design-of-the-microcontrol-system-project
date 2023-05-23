@@ -61,6 +61,9 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
+#define I2C_READ 0x01
+
+// --------------------------------------------
 
 /* USER CODE END Private defines */
 
