@@ -3,6 +3,7 @@
 "overrall\main.o"
 "overrall\gpio.o"
 "overrall\i2c.o"
+"overrall\tim.o"
 "overrall\usart.o"
 "overrall\stm32f4xx_it.o"
 "overrall\stm32f4xx_hal_msp.o"

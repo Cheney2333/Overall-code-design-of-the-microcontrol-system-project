@@ -41,7 +41,18 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+typedef struct{
+	unsigned short  c;      //[0-65536]
+	unsigned short  r;
+	unsigned short  g;
+	unsigned short  b;
+}COLOR_RGBC;//RGBC
+ 
+typedef struct{
+	unsigned short h;       //[0,360]
+	unsigned char  s;       //[0,100]
+	unsigned char  l;       //[0,100]
+}COLOR_HSL;//HSL
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -57,14 +68,15 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TCS_SCL_Pin GPIO_PIN_0
+#define TCS_SCL_GPIO_Port GPIOC
+#define TCS_SDA_Pin GPIO_PIN_3
+#define TCS_SDA_GPIO_Port GPIOC
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 #define I2C_READ 0x01
-
-// --------------------------------------------
-
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

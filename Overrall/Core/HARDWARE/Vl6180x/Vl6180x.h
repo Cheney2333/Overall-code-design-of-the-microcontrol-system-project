@@ -1,5 +1,5 @@
-#ifndef __TCS34725_H__
-#define __TCS34725_H__
+#ifndef __Vl6180_H__
+#define __Vl6180_H__
 
 #include "main.h" //HAL库文件声明
 
@@ -27,14 +27,14 @@
 #define VL6180X_ERROR_RANGEFLOW 14  // ranging algo underflow
 #define VL6180X_ERROR_RANGEUFLOW 15 // ranging algo overflow
 
-static void VL6180X_Init(void);
+void VL6180X_Init(void);
 // write one byte to VL6180X
-static HAL_StatusTypeDef VL6180X_WriteByte(uint16_t regAddress, uint8_t data);
+HAL_StatusTypeDef VL6180X_WriteByte(uint16_t regAddress, uint8_t data);
 // read one byte from VL6180X
-static HAL_StatusTypeDef VL6180X_ReadByte(uint16_t regAddress, uint8_t *data);
+HAL_StatusTypeDef VL6180X_ReadByte(uint16_t regAddress, uint8_t *data);
 // get id of VL6180X
-static uint8_t VL6180X_GetID(void);
+uint8_t VL6180X_GetID(void);
 // get the range from VL6180X
-static uint8_t VL6180X_GetRange(void);
+uint8_t VL6180X_GetRange(void);
 
 #endif

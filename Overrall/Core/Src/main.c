@@ -19,12 +19,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "TCS34725.h"
+#include "Vl6180x.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +48,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t distance = 0;
+int count = 0;
+COLOR_RGBC rgb;
+COLOR_HSL hsl;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -89,17 +95,30 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
-  MX_I2C1_Init();
   MX_I2C2_Init();
+  MX_TIM1_Init();
+  MX_USART2_UART_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  if (VL6180X_GetID() == VL6180X_DEFAULT_ID)
+    VL6180X_Init();
+  while (!TCS34725_Init())
+  {
+    printf("Color Sensor Init Error!\r\n");
+  }
   while (1)
   {
-    printf("test");
-    HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
+		distance = VL6180X_GetRange();
+    TCS34725_GetRawData(&rgb);
+		printf("distance: %d mm \r\nr: %d, g: %d, b: %d \r\n\r\n", distance, rgb.r, rgb.g, rgb.b);
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -153,12 +172,19 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-int fputc(int ch, FILE *f)
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  HAL_UART_Transmit(&huart6, (uint8_t *)&ch, 1, 0xFFFF);
-  return ch;
-}
 
+  if (htim == &htim1) // htim1 50HZ 20ms
+  {
+    count++;
+    
+    if (count == 50)
+    {
+			count = 0;
+    }
+  }
+}
 /* USER CODE END 4 */
 
 /**
