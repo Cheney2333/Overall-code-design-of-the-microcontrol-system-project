@@ -74,6 +74,10 @@ void Error_Handler(void);
 #define TCS_SDA_GPIO_Port GPIOC
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define Servo1_Pin GPIO_PIN_4
+#define Servo1_GPIO_Port GPIOB
+#define Servo2_Pin GPIO_PIN_5
+#define Servo2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define I2C_READ 0x01
