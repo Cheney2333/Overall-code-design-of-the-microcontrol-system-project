@@ -72,6 +72,8 @@ void Error_Handler(void);
 #define TCS_SCL_GPIO_Port GPIOC
 #define TCS_SDA_Pin GPIO_PIN_3
 #define TCS_SDA_GPIO_Port GPIOC
+#define Beep_Pin GPIO_PIN_4
+#define Beep_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
 #define Servo1_Pin GPIO_PIN_4

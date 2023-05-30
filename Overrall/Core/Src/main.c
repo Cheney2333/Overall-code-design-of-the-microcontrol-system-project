@@ -71,6 +71,8 @@ int flag = 0;
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 void L610_Init(void);
+void beepOn(void);
+void beepOff(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -139,9 +141,17 @@ int main(void)
     }
     distance = VL6180X_GetRange();
     TCS34725_GetRawData(&rgb);
-    printf("distance: %d mm; r: %d, g: %d, b: %d\r\n", distance, rgb.r, rgb.g, rgb.b);
+    printf("distance: %d mm;\t\tr: %d, g: %d, b: %d\r\n", distance, rgb.r, rgb.g, rgb.b);
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-    HAL_Delay(1000);
+    HAL_Delay(1500);
+    if (distance < 100)
+    {
+      beepOn();
+      HAL_Delay(300);
+      beepOff();
+      HAL_Delay(100);
+    }
+    
     // HAL_UART_Receive_IT(&huart6, (uint8_t *)&cmd, 1);
     /* USER CODE END WHILE */
 
@@ -212,6 +222,14 @@ void L610_Init()
   HAL_Delay(10);
   HAL_UART_Transmit(&huart6, (uint8_t *)"AT+TCMQTTSUB=\"$thing/down/property/7WB0TXD3D0/servo_01\",1\r\n", sizeof("AT+TCMQTTSUB=\"$thing/down/property/7WB0TXD3D0/servo_01\",1\r\n"), 0xFFFF);
   HAL_Delay(10);
+}
+void beepOn(void)
+{
+  HAL_GPIO_WritePin(Beep_GPIO_Port, Beep_Pin, 1);
+}
+void beepOff(void)
+{
+  HAL_GPIO_WritePin(Beep_GPIO_Port, Beep_Pin, 0);
 }
 /* USER CODE END 4 */
 
