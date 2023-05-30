@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Core/HARDWARE/TCS34725;../Core/HARDWARE/Vl6180x</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Core/HARDWARE/TCS34725;../Core/HARDWARE/Vl6180x;../Core/HARDWARE/cJSON</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -752,6 +752,11 @@
               <FileName>TCS34725.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\HARDWARE\TCS34725\TCS34725.c</FilePath>
+            </File>
+            <File>
+              <FileName>cJSON.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\HARDWARE\cJSON\cJSON.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -81,6 +81,8 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 #define I2C_READ 0x01
+#define RX_BUFFER_SIZE 256
+#define RXBUFFERSIZE  256 // 定义接收字符串的�?大长�?
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

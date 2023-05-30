@@ -10,6 +10,7 @@
                 "d:\\OneDrive\\Univesity\\STM32\\Learn\\NUCLEO\\Overroll\\Overrall\\Drivers\\CMSIS\\Include",
                 "d:\\OneDrive\\Univesity\\STM32\\Learn\\NUCLEO\\Overroll\\Overrall\\Core\\HARDWARE\\TCS34725",
                 "d:\\OneDrive\\Univesity\\STM32\\Learn\\NUCLEO\\Overroll\\Overrall\\Core\\HARDWARE\\Vl6180x",
+                "d:\\OneDrive\\Univesity\\STM32\\Learn\\NUCLEO\\Overroll\\Overrall\\Core\\HARDWARE\\cJSON",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux_compat",

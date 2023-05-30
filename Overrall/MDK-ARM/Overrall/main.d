@@ -36,4 +36,5 @@ overrall/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Core\Inc\i2c.h ..\Core\Inc\tim.h ..\Core\Inc\usart.h \
   ..\Core\Inc\gpio.h D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   ..\Core\HARDWARE\TCS34725\TCS34725.h \
-  ..\Core\HARDWARE\Vl6180x\Vl6180x.h
+  ..\Core\HARDWARE\Vl6180x\Vl6180x.h ..\Core\HARDWARE\cJSON\cJSON.h \
+  D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h

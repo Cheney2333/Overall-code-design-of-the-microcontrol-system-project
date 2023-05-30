@@ -28,6 +28,7 @@
 "overrall\system_stm32f4xx.o"
 "overrall\vl6180x.o"
 "overrall\tcs34725.o"
+"overrall\cjson.o"
 --library_type=microlib --strict --scatter "Overrall\Overrall.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
